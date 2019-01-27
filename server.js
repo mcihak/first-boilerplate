@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const LRU = require('lru-cache')
+// const LRU = require('lru-cache')
 const express = require('express')
 const favicon = require('serve-favicon')
 const compression = require('compression')
@@ -19,11 +19,11 @@ const app = express()
 function createRenderer (bundle, options) {
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
-    // for component caching
-    cache: LRU({
-      max: 1000,
-      maxAge: 1000 * 60 * 15
-    }),
+    // // for component caching
+    // cache: LRU({
+    //   max: 1000,
+    //   maxAge: 1000 * 60 * 15
+    // }),
     // this is only needed when vue-server-renderer is npm-linked
     basedir: resolve('./dist'),
     // recommended for performance
@@ -98,7 +98,7 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: 'First Boilerplate', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {

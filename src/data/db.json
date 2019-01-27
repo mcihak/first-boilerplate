@@ -1,0 +1,24 @@
+{
+    "results": [
+      {
+         "id": "1",
+         "name": "Xiaomi Redmi 3",
+         "price": "150"
+      },
+      {
+          "id": "2",
+          "name": "Apple iPhone 8",
+          "price": "700"
+      },
+      {
+          "id": "3",
+          "name": "Nokia 7.1",
+          "price": "400" 
+      },
+      {
+          "id": "4",
+          "name": "Samsun S8",
+          "price": "650"
+      }
+       ]
+  }
