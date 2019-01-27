@@ -1,6 +1,6 @@
 {
-  "name": "Vue Hackernews 2.0",
-  "short_name": "Vue HN",
+  "name": "Fist Vue Boilerplate",
+  "short_name": "First Boilerplate",
   "icons": [{
       "src": "/public/logo-120.png",
       "sizes": "120x120",
