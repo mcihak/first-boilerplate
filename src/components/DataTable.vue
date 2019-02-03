@@ -1,36 +1,35 @@
 <template>
-
-    <table>
-      <caption>Sample data</caption>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="coin in coins" :key="coin.id">
-          <td>{{ coin.id }}</td>
-          <td>{{ coin.name }}</td>
-          <td>{{ coin.price }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <table>
+    <caption>
+      Sample data
+    </caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="coin in coins" :key="coin.id">
+        <td>{{ coin.id }}</td>
+        <td>{{ coin.name }}</td>
+        <td>{{ coin.price }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 export default {
-  name: 'DataTable',
-  mounted () {
+  name: "DataTable",
+  computed: mapState(["coins"]),
+  mounted() {
     // TODO: Do we need this? (we already do this in asyncData in `src/views/Home.vue`)
-    this.$store.dispatch('loadCoins')
-  },
-  computed: mapState([
-    'coins'
-  ])
-}
+    this.$store.dispatch("loadCoins");
+  }
+};
 </script>
 
 <style lang="stylus">
@@ -59,14 +58,14 @@ table
     letter-spacing: .1em
     text-transform: uppercase
 
-  tbody 
+  tbody
     tr:nth-child(odd)
-      background-color: #eee  
+      background-color: #eee
 
 @media (max-width 600px)
   table
     border: 0
-    
+
     thead
       border: none
       clip: rect(0 0 0 0)
@@ -76,12 +75,12 @@ table
       padding: 0
       position: absolute
       width: 100%
-  
-    tr 
+
+    tr
       border-bottom: 2px solid #ddd
       display: block
       margin-bottom: .625em
-  
+
     td
       border-bottom: 1px solid #ddd
       display: block
@@ -92,7 +91,7 @@ table
       float: left
       font-weight: bold
       text-transform: uppercase
-  
+
     td:last-child
       border-bottom: 0
 </style>
