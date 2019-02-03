@@ -1,27 +1,26 @@
 <template>
   <div class="container">
     <DataTable />
-  </div>  
+  </div>
 </template>
 
 <script>
-import DataTable from '../components/DataTable.vue'
+import DataTable from "../components/DataTable.vue";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     DataTable
   },
-  // we can also acces route data such as params 
+  // we can also acces route data such as params
   // asyncData ({ store, route: { params: { }}}) {
-  asyncData ({ store }) {
-    return store.dispatch('loadCoins')
+  asyncData({ store }) {
+    return store.dispatch("loadCoins");
   },
-  title () {
-    return 'Home'
-
+  title() {
+    return "Home";
   }
-}
+};
 </script>
 
 <style lang="stylus">

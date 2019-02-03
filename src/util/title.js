@@ -1,30 +1,28 @@
-function getTitle (vm) {
-  const { title } = vm.$options
+function getTitle(vm) {
+  const { title } = vm.$options;
   if (title) {
-    return typeof title === 'function'
-      ? title.call(vm)
-      : title
+    return typeof title === "function" ? title.call(vm) : title;
   }
 }
 
 const serverTitleMixin = {
-  created () {
-    const title = getTitle(this)
+  created() {
+    const title = getTitle(this);
     if (title) {
-      this.$ssrContext.title = `First Boilerplate | ${title}`
+      this.$ssrContext.title = `First Boilerplate | ${title}`;
     }
   }
-}
+};
 
 const clientTitleMixin = {
-  mounted () {
-    const title = getTitle(this)
+  mounted() {
+    const title = getTitle(this);
     if (title) {
-      document.title = `First Boilerplate | ${title}`
+      document.title = `First Boilerplate | ${title}`;
     }
   }
-}
+};
 
-export default process.env.VUE_ENV === 'server'
+export default (process.env.VUE_ENV === "server"
   ? serverTitleMixin
-  : clientTitleMixin
+  : clientTitleMixin);
